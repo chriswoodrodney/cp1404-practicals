@@ -1,6 +1,6 @@
 def get_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
-    FILENAME = "data.txt"  # Placeholder value for FILENAME
+    FILENAME = "subject_data.txt"  # Placeholder value for FILENAME
     data = []
     with open(FILENAME) as input_file:
         for line in input_file:
