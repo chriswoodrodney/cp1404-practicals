@@ -1,23 +1,40 @@
 """
 name: CHRISWOOD RODNEY OKWIIRI
-file: state_names
-task: reformating
+file: wimbledon
 """
 
-# Reformatting code for PEP 8 convention
-CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern Territory", "WA": "Western Australia",
-                "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania"}
-print(CODE_TO_NAME)
+def read_data(filename):
+    with open(filename, "r", encoding="utf-8-sig") as in_file:
+        next(in_file)  # Skip header
+        data = [line.strip().split(",") for line in in_file]
+    return data
 
-state_code = input("Enter short state: ")
-while state_code != "":
-    state_code = state_code.upper()  # Convert input to uppercase
-    try:
-        print(state_code, "is", CODE_TO_NAME[state_code])
-    except KeyError:
-        print("Invalid short state")
-    state_code = input("Enter short state: ")
+def count_champions(data):
+    champions = {}
+    for row in data:
+        champion = row[2]
+        champions[champion] = champions.get(champion, 0) + 1
+    return champions
 
-# Loop to print all states and names neatly lined up
-for code, name in CODE_TO_NAME.items():
-    print(f"{code:<3} is {name}")
+def get_countries(data):
+    countries = set()
+    for row in data:
+        countries.add(row[1])
+        countries.add(row[3])
+    return sorted(countries)
+
+def main():
+    filename = "wimbledon_champions.csv"
+    data = read_data(filename)
+    champions = count_champions(data)
+    countries = get_countries(data)
+
+    print("Wimbledon Champions:")
+    for champion, wins in sorted(champions.items()):
+        print(f"{champion}: {wins}")
+
+    print("\nThese", len(countries), "countries have won Wimbledon:")
+    print(", ".join(countries))
+
+if __name__ == "__main__":
+    main()
