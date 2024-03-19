@@ -1,10 +1,3 @@
-"""
-NAME:CHRISWOOD RODNEY OKWIIRI
-FILE:PROGRAMMING LANGUAGES
-
-"""
-
-
 class ProgrammingLanguage:
     """Represents a programming language."""
 
@@ -22,16 +15,3 @@ class ProgrammingLanguage:
     def __str__(self):
         """Return a string representation of the ProgrammingLanguage."""
         return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
-
-# Example usage:
-lang1 = ProgrammingLanguage("Python", "Dynamic", True, 1991)
-lang2 = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
-lang3 = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
-print(lang1)
-
-languages = [lang1, lang2, lang3]
-
-print("\nThe dynamically typed languages are:")
-for language in languages:
-    if language.is_dynamic():
-        print(language.name)
