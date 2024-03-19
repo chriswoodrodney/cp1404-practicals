@@ -1,9 +1,3 @@
-"""
-NAME:CHRISWOOD RODNEY OKWIIRI
-FILE:CAR
-"""
-
-
 class Car:
     """Represent a Car object."""
 

@@ -1,11 +1,3 @@
-"""
-NAME:CHRISWOOD RODNEY OKWIIRI
-FILE:LANGUANGES
-
-"""
-
-
-
 from programming_languages import ProgrammingLanguage
 
 python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
@@ -19,4 +11,3 @@ print("\nThe dynamically typed languages are:")
 for language in languages:
     if language.is_dynamic():
         print(language.name)
-
